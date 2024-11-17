@@ -8,9 +8,9 @@ struct Library {
 };
 
 struct CompileOptions {
-	bool FastMathEnabled;
 	bool PreserveInvariance;
 	uint_t LanguageVersion;
+    int MathMode;
 };
 
 struct Library Device_NewLibraryWithSource(void * device, const char * source, size_t sourceLength, struct CompileOptions opts);

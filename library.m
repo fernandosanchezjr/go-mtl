@@ -5,7 +5,7 @@
 
 struct Library Device_NewLibraryWithSource(void * device, const char * source, size_t sourceLength, struct CompileOptions opts) {
 	MTLCompileOptions *compileOptions = [MTLCompileOptions new];
-	compileOptions.fastMathEnabled = opts.FastMathEnabled;
+	compileOptions.mathMode = opts.MathMode;
 	compileOptions.preserveInvariance = opts.PreserveInvariance;
 
 	NSError * error;

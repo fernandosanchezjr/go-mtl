@@ -756,3 +756,11 @@ func RegionMake3D(x, y, z, width, height, depth uint) Region {
 		Size:   Size{width, height, depth},
 	}
 }
+
+type MathMode int
+
+const (
+	MTLMathModeSafe    MathMode = 0
+	MTLMathModeRelaxed MathMode = 1
+	MTLMathModeFast    MathMode = 2
+)

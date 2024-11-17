@@ -21,14 +21,14 @@ import (
 //
 // Reference: https://developer.apple.com/documentation/metal/mtlcompileoptions
 type CompileOptions struct {
-	// Indicates whether the compiler can perform optimizations for floating-point arithmetic that may violate the IEEE 754 standard.
-	FastMathEnabled bool
-
 	// Indicates whether the compiler should compile vertex shaders conservatively to generate consistent position calculations.
 	PreserveInvariance bool
 
 	// The language version used to interpret the library source code.
 	LanguageVersion LanguageVersion
+
+	// Indicates whether the compiler can perform optimizations for floating-point arithmetic that may violate the IEEE 754 standard.
+	MathMode MathMode
 }
 
 // Library represents a collection of compiled graphics or compute functions.
@@ -44,9 +44,9 @@ type Library struct {
 // Reference: https://developer.apple.com/documentation/metal/mtldevice/1433431-newlibrarywithsource
 func (d Device) NewLibraryWithSource(source string, optFns ...func(*CompileOptions)) (Library, error) {
 	opts := CompileOptions{
-		FastMathEnabled:    true,
 		PreserveInvariance: false,
 		LanguageVersion:    LanguageVersion3_0,
+		MathMode:           MTLMathModeFast,
 	}
 
 	for _, fn := range optFns {
@@ -54,9 +54,9 @@ func (d Device) NewLibraryWithSource(source string, optFns ...func(*CompileOptio
 	}
 
 	co := C.struct_CompileOptions{
-		FastMathEnabled:    C.bool(opts.FastMathEnabled),
 		PreserveInvariance: C.bool(opts.PreserveInvariance),
 		LanguageVersion:    C.uint_t(opts.LanguageVersion),
+		MathMode:           C.int(opts.MathMode),
 	}
 
 	l := C.Go_Device_NewLibraryWithSource(d.device, source, co) // TODO: opt.
