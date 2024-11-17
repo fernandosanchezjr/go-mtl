@@ -21,6 +21,11 @@ import (
 //
 // Reference: https://developer.apple.com/documentation/metal/mtlcompileoptions
 type CompileOptions struct {
+	// Indicates whether the compiler can perform optimizations for floating-point arithmetic that may violate the IEEE 754 standard.
+	//
+	// Deprecated: FastMathEnabled exists for historical compatibility and should not be used. Use MathNode instead.
+	FastMathEnabled bool
+
 	// Indicates whether the compiler should compile vertex shaders conservatively to generate consistent position calculations.
 	PreserveInvariance bool
 
