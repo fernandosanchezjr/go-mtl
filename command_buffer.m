@@ -16,7 +16,7 @@ void CommandBuffer_PresentDrawable(void * commandBuffer, void * drawable) {
 }
 
 void * CommandBuffer_ComputeCommandEncoder(void * commandBuffer) {
-	return [(id<MTLCommandBuffer>)commandBuffer computeCommandEncoder];
+	return [(id<MTLCommandBuffer>)commandBuffer computeCommandEncoderWithDispatchType:MTLDispatchTypeConcurrent];
 }
 
 void * CommandBuffer_RenderCommandEncoderWithDescriptor(void * commandBuffer, struct RenderPassDescriptor descriptor) {
