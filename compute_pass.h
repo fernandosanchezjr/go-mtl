@@ -5,6 +5,7 @@
 struct ComputePipelineState {
 	void * 			ComputePipelineState;
 	uint_t  		MaxTotalThreadsPerThreadgroup;
+	uint_t          ThreadExecutionWidth;
 	const char * 	Error;
 };
 

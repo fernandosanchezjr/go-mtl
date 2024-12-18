@@ -17,6 +17,7 @@ struct ComputePipelineState Device_NewComputePipelineStateWithFunction(void * de
 	}
 
 	cps.MaxTotalThreadsPerThreadgroup = pipelineState.maxTotalThreadsPerThreadgroup;
+	cps.ThreadExecutionWidth = pipelineState.threadExecutionWidth;
 
 	return cps;
 }

@@ -18,6 +18,7 @@ import (
 type ComputePipelineState struct {
 	computePipelineState          unsafe.Pointer
 	MaxTotalThreadsPerThreadgroup uint
+	ThreadExecutionWidth          uint
 }
 
 // NewComputePipelineStateWithFunction creates a new ComputePipelineState object with the specified compute function.
@@ -34,5 +35,6 @@ func (d Device) NewComputePipelineStateWithFunction(f Function) (ComputePipeline
 	return ComputePipelineState{
 		computePipelineState:          cps.ComputePipelineState,
 		MaxTotalThreadsPerThreadgroup: uint(cps.MaxTotalThreadsPerThreadgroup),
+		ThreadExecutionWidth:          uint(cps.ThreadExecutionWidth),
 	}, nil
 }
