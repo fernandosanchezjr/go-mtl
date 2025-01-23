@@ -7,6 +7,7 @@ struct Library Device_NewLibraryWithSource(void * device, const char * source, s
 	MTLCompileOptions *compileOptions = [MTLCompileOptions new];
 	compileOptions.mathMode = opts.MathMode;
 	compileOptions.preserveInvariance = opts.PreserveInvariance;
+	compileOptions.optimizationLevel = MTLLibraryOptimizationLevelSize;
 
 	NSError * error;
 	id<MTLLibrary> library = [(id<MTLDevice>)device
