@@ -38,3 +38,10 @@ func (d Device) NewComputePipelineStateWithFunction(f Function) (ComputePipeline
 		ThreadExecutionWidth:          uint(cps.ThreadExecutionWidth),
 	}, nil
 }
+
+// Release releases the compute pipeline state object.
+//
+// Reference: https://developer.apple.com/documentation/objectivec/1418655-nspobject/1406859-release
+func (cps ComputePipelineState) Release() {
+	C.ComputePipelineState_Release(cps.computePipelineState)
+}

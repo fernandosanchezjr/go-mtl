@@ -41,3 +41,7 @@ void Texture_GetBytes(void * texture, void * pixelBytes, size_t bytesPerRow, str
 	                       fromRegion:(MTLRegion){{region.Origin.X, region.Origin.Y, region.Origin.Z}, {region.Size.Width, region.Size.Height, region.Size.Depth}}
 	                      mipmapLevel:(NSUInteger)level];
 }
+
+void Buffer_Release(void * buffer) {
+	[(id<MTLBuffer>)buffer release];
+}

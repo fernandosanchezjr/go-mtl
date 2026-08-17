@@ -3,6 +3,10 @@
 #import <Metal/Metal.h>
 #include "compute_pass.h"
 
+void ComputePipelineState_Release(void * computePipelineState) {
+	[(id<MTLComputePipelineState>)computePipelineState release];
+}
+
 struct ComputePipelineState Device_NewComputePipelineStateWithFunction(void * device,  void * function) {
     NSError * error; 
     id<MTLComputePipelineState> pipelineState = [(id<MTLDevice>)device newComputePipelineStateWithFunction:function error:&error];

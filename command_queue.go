@@ -31,3 +31,10 @@ func (d Device) NewCommandQueue() CommandQueue {
 func (cq CommandQueue) CommandBuffer() CommandBuffer {
 	return CommandBuffer{C.CommandQueue_CommandBuffer(cq.commandQueue)}
 }
+
+// Release releases the command queue object.
+//
+// Reference: https://developer.apple.com/documentation/objectivec/1418655-nspobject/1406859-release
+func (cq CommandQueue) Release() {
+	C.CommandQueue_Release(cq.commandQueue)
+}

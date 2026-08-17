@@ -10,3 +10,7 @@ void * Device_NewCommandQueue(void * device) {
 void * CommandQueue_CommandBuffer(void * commandQueue) {
 	return [(id<MTLCommandQueue>)commandQueue commandBuffer];
 }
+
+void CommandQueue_Release(void * commandQueue) {
+	[(id<MTLCommandQueue>)commandQueue release];
+}

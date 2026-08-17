@@ -25,6 +25,13 @@ func (b *Buffer) Contents() unsafe.Pointer {
 	return C.Buffer_Contents(b.buffer)
 }
 
+// Release releases the buffer object.
+//
+// Reference: https://developer.apple.com/documentation/objectivec/1418655-nspobject/1406859-release
+func (b *Buffer) Release() {
+	C.Buffer_Release(b.buffer)
+}
+
 // NewBufferWithLength creates a new buffer with the specified length.
 //
 // Reference: https://developer.apple.com/documentation/metal/mtldevice/1433375-newbufferwithlength

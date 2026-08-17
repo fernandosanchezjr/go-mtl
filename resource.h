@@ -18,3 +18,5 @@ void * Device_NewTextureWithDescriptor(void * device, struct TextureDescriptor d
 
 void Texture_ReplaceRegion(void * texture, struct Region region, uint_t level, void * pixelBytes, size_t bytesPerRow);
 void Texture_GetBytes(void * texture, void * pixelBytes, size_t bytesPerRow, struct Region region, uint_t level);
+
+void Buffer_Release(void * buffer);

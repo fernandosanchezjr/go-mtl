@@ -10,3 +10,4 @@ struct ComputePipelineState {
 };
 
 struct ComputePipelineState Device_NewComputePipelineStateWithFunction(void * device, void * function);
+void ComputePipelineState_Release(void * computePipelineState);
